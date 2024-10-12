@@ -1,0 +1,3231 @@
+JAVASCRIPT BY CSWORLD
+=====================
+=>To create dynamic webpages
+
+we can use js in three ways:
+-----------------------------
+
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">(2)
+	</script>
+    <script src="index.js"></script>(3)
+</head>
+<body>
+	<script type="text/javascript">(1)
+	</script>
+
+</body>
+</html> 
+  
+Display the content:
+--------------------
+
+1.alert("")
+2.Document.write()
+3.innerhtml
+
+Eg:
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<script type="text/javascript">
+    	alert("hello")
+        document.write("HI")//the webpage treat as object
+	</script>
+    <h1 id="special">This is heading tag</h1>
+    <script>
+    	document.getElementById("special").innerHTML="changed using js"
+    </script>
+
+</body>
+</html> 
+
+o/p:
+HI
+changed using js
+
+Variables
+=========
+
+How to create variable:
+1.var
+2.let
+3.const
+
+Eg:
+
+<!DOCTYPE html>
+<html>
+<body>
+
+
+
+<script>
+var n1=10
+console.log(n1);
+document.write(n1)
+let n2=20
+console.log(n2)
+const n3=50
+console.log(n3)
+n1=100
+console.log(n1)
+n2=200
+console.log(n2)
+</script>
+
+</body>
+</html>
+
+
+o/p:
+
+console:
+10
+20
+50
+100
+200
+
+browser 
+
+10
+
+
+Eg:
+<script>
+
+console.log(n1);
+document.write(n1)
+let n2=80
+console.log(n2)
+const n3=50
+console.log(n3)
+var n1=100
+console.log(n1)
+let n2=200
+console.log(n2)
+</script>
+
+o/p:
+
+undefined
+80
+50
+100
+200
+
+browser
+undefined
+
+At first there is no variable n1 but it is printing undefined bcse the concept of hoisting concept i.e the variable n1 is declared anywhere in script tag so at the first line the variable n1 is available but the value of n1 is not available at first line.
+
+=> Hositing:a variable can be used before it has been declared.
+
+
+
+Eg:
+
+<script>
+
+console.log(n1);
+document.write(n1)
+console.log(n2)
+const n3=50
+console.log(n3)
+var n1=100
+console.log(n1)
+let n2=200
+console.log(n2)
+</script>
+
+
+o/p:
+
+undefined
+
+ncaught ReferenceError: Cannot access 'n2' before initialization
+
+browser
+undefined
+
+* same we got error for const also
+
+=>Hoisting concept is applicable for Var 
+=>Hoisting concept is not applicable for Let and Const 
+
+
+Eg:
+
+<script>
+
+var n1=10
+console.log(n1)//10
+
+var n1=20
+console.log(n1)//20
+
+let n2=30
+console.log(n2)
+
+let n2=40
+console.log(n2)
+
+
+</script>
+
+o/p:Uncaught SyntaxError: Identifier 'n2' has already been declared
+
+=>We cant declare again by using let and const variable
+=>Mostly Developers use let bcse if we redeclare the value for same variable name we got the last value 
+=>let has a block level scope:we can't access variables outside of the block
+=>var doesn't have a block level scope:we can access variables outside of the block
+
+Eg:
+<script>
+console.log(name)
+{
+	let x=10;
+	console.log(x)
+}
+console.log(x)
+</script>
+
+o/p:Uncaught SyntaxError: x is not defined
+
+Eg:
+<script>
+console.log(name)
+{
+	var x=10;
+	console.log(x)
+}
+console.log(x)
+</script>
+
+o/p:10
+
+let vs const:
+-------------
+let myName = "my name";
+myName = "my new name";
+console.log(myName); //output => "my new name"
+
+var myName = "my name";
+myName = "my new name";
+console.log(myName); //output => "my new name"
+
+let myName = "my name";
+let myName = "my new name";
+console.log(myName); //output => SyntaxError: redeclaration of let myName
+
+const myName = "my name";
+const myName = "my new name";
+console.log(myName); //TypeError: invalid assignment to const 'myName'
+
+const myName = "my name";
+myName = "my new name";
+console.log(myName); //TypeError: invalid assignment to const 'myName'
+
+Rules for variable names:
+1.Names can contain letters, digits, underscores, and dollar signs.
+2.Names must begin with a letter or _.
+3.Names are case sensitive(N != n)
+4.use camelcase(all letters are upper from second word)
+	var firstLastName="xyz";
+
+
+Datatypes
+=========
+=>Js is a Dynamically typed
+
+1.primitive
+	=>Number:integer,float
+
+	Eg:
+		var x=87 or 87.89
+		console.log(typeof(x));//number
+	=>String
+
+	  Eg:
+			var y="xyz" or 'abc'
+		
+	=>Boolean
+
+2.special
+	=>Undefined:declared without intilization
+		
+		Eg:
+			var x;
+			console.log(x);//defined
+	=>Null
+		Eg:
+			var x=null;
+			console.log(x);//null
+3.composite
+	=>Array:An array is a special variable, which can hold more than one value
+	
+		Eg:const cars = ["Saab", "Volvo", "BMW",56,true,null];
+
+	=>Object:grp of key/value pairs.
+		Eg: const car = {type:"Fiat", model:"500", color:"white"};
+
+		Eg:
+			var students=[
+
+				{type:"Fiasat", model:"50", color:"black"};
+				{type:"Fiat", model:"500", color:"white"};
+			]
+Eg:
+<script>
+var x=87;
+</script>
+
+
+Operators
+=========
+
+Types of JavaScript Operators
+
+Arithmetic Operators
+Assignment Operators
+Comparison Operators
+==,===,>=,<=,a!=b
+String Operators
+Logical Operators:it return true or false based on condition
+	&&,||,!a
+E:
+
+<script>
+let x = 6;
+let y = 3;
+
+document.getElementById("demo").innerHTML = 
+(x < 10 && y > 1) + "<br>" + 
+(x < 10 && y < 1);
+</script>
+
+o/p:true
+false
+
+Eg:(pwsd==cpwd( && (length(pwd)>8)
+Bitwise Operators:binary data
+Ternary Operators
+Type Operators
+
+
+Type Conversion 
+===============
+=>By using Js engine we can see output in Browser
+=>Without using Browser we can see output by using Nodejs
+
+2types:
+-------
+1.Implicit conversion or coersion
+	//based on operator the js engine will convert at runtime
+	Eg:document.write(2+"4")==>24(if we give atleast one operand as string then it will convert number value into string )
+	Eg:document.write(12-"4")==>8(if we give atleast one operand as number then it convert string value into number)
+	Eg:document.write(12*"s")==>error
+
+2.Explicit conversion:Number,string,boolean
+
+number:
+-------
+<script>
+	var x="java"
+	document.write(x + " : " +typeof(x))
+	
+	document.write(Number("nikki"))//NaN
+
+	var y="6"
+	document.write(Number(y))//6
+	document.write(typeof(y))//number
+
+
+	document.write(Number("123bjsa"))//NaN
+	document.write(parseInt("123bjsa"))//123
+	document.write(parseInt("b34jsa"))//NaN
+
+	document.write(parseFloat("123.67bjsa"))//123.67
+	document.write(parseFloat("b123.67jsa"))//NaN
+
+	var x=parseFloat("123.67jsa")
+	document.write(typeof(x))//number
+
+	var x=parseInt("123.67jsa")
+	document.write(typeof(x))//number
+
+	
+	x=Number(null)
+	document.write(x);//0
+	document.write(typeof(x))//number
+
+	x=Number(undefined)
+	document.write(x);//NaN
+	document.write(typeof(x))//string
+
+</script>
+
+string:
+------
+whatever data we are passing through arguments it will convert into string
+
+<script>
+
+	var x=80
+	document.write(typeof(x))//number
+	x=String(x)
+	document.write(typeof(x))//string
+
+	x=String(undefined)
+	document.write(x);//undefined
+	document.write(typeof(x))//string
+
+	x=String(null)
+	document.write(x);//null 
+	document.write(typeof(x))//string
+
+	x=String(true)
+	document.write(x);//true
+	document.write(typeof(x))//string
+
+
+</script>
+
+Boolean:
+-------
+0,null,""==>false
+
+<script>
+	var x=Boolean("")
+	document.write(x);//false
+	document.write(typeof(x))//boolean
+
+	
+	var x=Boolean("ssf")
+	document.write(x);//true
+	document.write(typeof(x))//boolean
+
+	var x=Boolean(null)
+	document.write(x);//false
+	document.write(typeof(x))//boolean
+	
+</script> 
+
+Conditional Statements
+======================
+
+1.if statement
+2.if-else statement
+3.if-else if-else statement
+4.Switch statement
+
+<script>
+
+	var x=prompt("Enter a number")
+	if(x<0){
+		alert("Enter positive number")
+	}
+	else{
+		document.write(x)
+	}
+
+</script>
+
+<script>
+
+	var x=prompt("Enter a number")
+	var grade;
+	if(x>=90){
+		grade="A"
+	}
+	else if(x>=80){
+		grade="B"
+	}
+	else if(x>=70){
+		grade="C"
+	}
+	else if(x>=60){
+		grade="D"
+	}
+	document.write("Your marks:" + x + "Grade:" + grade)
+</script>
+
+Loops
+=====
+
+why loops are needed:
+
+1.Time will be saved
+2.code length will be reduced
+3.Readability increases
+
+Types of loops:
+---------------
+1.for loop
+2.while loop
+3.do-while-loop
+3.for-in-loop
+4.for-of-loop
+
+for(let counter=10;counter<=20;i++)
+{
+	document.write(counter)
+}
+
+o/p:10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+
+Eg:
+
+<script>
+	//+ converts string to number
+	var n=+prompt("Enter a number")
+	while(n!=0)
+	{
+		document.write("Entered number:" + n)
+    		n=+prompt("Enteer a number")
+	}
+
+</script>
+
+
+o/p:
+Entered number:5
+Entered number:6
+Entered number:8
+Entered number:9
+
+for-in-loop
+-----------
+=>we can retrieve the each value of iterable data(grp of data)
+
+=>it is pointing the position of element
+Eg:
+<script>
+
+var fruits=['mango','apple','banana','kivi']
+document.write(fruits)
+for(i in fruits)
+{
+	document.write(i+fruits[i]+"<br>")
+}
+
+</script>
+
+o/p:
+mango apple banana kivi
+mango 0
+apple 1
+banana 2
+kivi 3
+ 
+for-of-loop
+------------
+=>we can retrieve the each value of iterable data(grp of data)
+
+=>it is pointing the element
+
+Eg:
+<script>
+
+var fruits=['mango','apple','banana','kivi']
+document.write(fruits)
+for(i of fruits)
+{
+	document.write(i+"<br>")
+}
+
+</script>
+
+o/p:
+mango
+apple
+banana
+kivi
+
+=>if we need index and value then we can use for-in-loop
+=>for objects we need to use for-in-loop bcse it stores key and value pairs
+Eg:
+var students={'100':"xyz",102:"pqr",'103':"mno"}
+document.write(students)//object
+
+for(key in students)
+{
+	document.write(key+":"+students[key]+"<br>")
+}
+o/p:
+100:xyz
+102:pqr
+103:mno
+
+
+=>if we need only value then we can use for-of-loop
+
+
+Template Literal
+================
+
+Eg:
+<script>
+
+
+var x="javascript"
+console.log(`Hello ${x} world`)
+
+
+</script>
+
+o/p:Hello javascript world
+
+Functions
+=========
+
+what is function
+-----------------
+=>A block of code written to do a particular task
+
+why functions
+-------------
+=>For repeated tasks
+=>code reusability
+
+How to create functions
+-----------------------
+
+function functionName(parameter1,parameter2,..parameter n)
+{
+	body
+	return value;
+}
+
+=>return nd parameters are optional
+
+
+How to call function
+---------------------
+functionName(parameter1,parameter2,..parameter n)
+
+
+What is function expression
+---------------------------
+=>Assigning function to a variable
+
+var add=function sum(n1,n2){
+	var result=n1+n2
+	return result;
+}
+
+var res=add(10,20)
+document.write(res)//30
+
+
+Types of Functions
+==================
+1.Named functions
+
+Eg:
+function sum(n1,n2)
+{
+	var result=n1+n2
+	return result;
+}
+
+2.Anonymous function
+=>we cannot write anonymous function directly
+=>we have to assign it it a variable
+
+Eg:
+var x=function (n1,n2)
+{
+	var result=n1+n2
+	return result;
+}
+
+3.Immediately Invoked function expression(IIFE)
+=>when we want to execute a function immediately where they created,IIFE used.
+
+syntax:function definition();
+
+
+Eg:
+var sum=(
+	function add(n1,n2)
+	{
+		var result=n1+n2
+		return result;
+	}
+)(6,8);
+document.write(sum)
+
+4.Arrow function
+
+var any name=(parameter1,parameter2...parameter n)=>{
+	body
+	return value;
+}
+
+
+Eg:
+var sum=(n1,n2)=>
+{
+	var result=n1+n2
+	return result;
+}
+
+document.write(sum(4,5))//9
+
+
+Arrow functions forms:
+
+1.if only one statement in function body
+	
+	var product=(n1,n2)=>n1*n2
+
+2.if only one parameter
+	
+	var cube = n1 =>n1*n1*n1
+	
+	var cube = (n1) =>n1*n1*n1
+
+	var cube = (n1) =>{return n1*n1*n1}
+
+3.if no argument
+	
+	var greet=()=>console.log("hi")
+	
+	var greet=_=>console.log("hi")
+
+	greet=_=>{
+		document. Write("hello")
+		documnet.write("welcome")
+		return "hi"
+	}
+	
+Scope in JS
+------------
+
+1.global scope
+2.local scope
+3.block level scope
+
+Eg:local
+<script>
+	function test(){
+		var x=10
+	}
+	var y=x+10;
+</script>
+
+o/p:error
+
+Eg:global
+<script>
+	function test(){
+		console.log(y)
+		var x=y+10
+		
+	}
+	
+	var y=10
+	test()
+</script>
+
+o/p:10
+
+Eg:
+<script>
+	function test(){
+		var x=10;
+		console.log(x)//10
+		
+	}
+	
+	var x=110;
+	test()
+</script>
+
+
+
+Eg:
+<script>
+
+	function test(){
+		
+		console.log(x)//110
+		console.log(y)//70
+		
+	}
+
+	var y=70
+	{
+		var x=110
+	}
+	console.log(x)//110
+
+	test()
+
+</script>
+
+Eg:
+function test()
+{
+	console.log(x)
+}
+
+{
+	let x=90 or const x=20
+}
+test()
+
+o/p:error
+
+Default parameters | Rest parameters 
+=====================================
+
+Eg:
+
+<script>
+	function product(n1,n2){
+		console.log(n1,n2,n1*n2)
+	}
+	product(8,5)
+</script>
+
+o/p:8 5 40
+
+Eg:
+
+<script>
+	function product(n1,n2){
+		console.log(n1,n2,n1*n2)
+	}
+	product(8)
+</script>
+
+o/p:8 undefined NaN
+
+Default parameters
+-------------------
+Eg:
+
+<script>
+	function product(n1,n2=1){
+		console.log(n1,n2,n1*n2)
+	}
+	product(8)
+</script>
+
+o/p:8 1 8
+	
+
+Rest parameters
+----------------
+=>we can make function to accept unspecified number of parameters
+
+Eg:
+
+<script>
+
+	function product(n1=3,n2=1,...arr){
+		var result=n1*n2
+		for(num of arr)
+		{
+			result=result*num
+		}
+		return result
+	}
+	console.log(result)
+  }
+  product(2,3,4,2)
+  product()//3
+
+</script>
+
+o/p:48
+
+Eg:
+
+<script>
+
+	function product(n1=3,n2=1,...arr){
+		console.log(arguments)//2 3 4 5 8
+  	}
+  	product(2,3,4,5,8)
+
+
+</script>
+
+
+
+foreach loop
+============
+=>For every element present inside array the specified function will be executed.
+
+
+Syntax:
+
+arr.forEach(function funName(currentItem,index,arr)){
+	//code here
+});
+
+
+currentItem is required
+index,arr is optional
+
+Syntax: arr.forEach(functionName)
+
+	function test(item,index,arr){
+		//code
+	}
+
+
+Eg:
+var salaries=[50000,60000,45000,30000]
+salaries.forEach(function(salary,index,arr){
+	console.log(salary)
+	console.log(index)
+	console.log(arr)
+})
+console.log(salaries)
+
+o/p:
+50000
+0
+(4) [50000, 60000, 45000, 30000]0: 500001: 600002: 450003: 30000length: 4[[Prototype]]: Array(0)
+60000
+1
+(4) [50000, 60000, 45000, 30000]0: 500001: 600002: 450003: 30000length: 4[[Prototype]]: Array(0)
+45000
+2
+(4) [50000, 60000, 45000, 30000]0: 500001: 600002: 450003: 30000length: 4[[Prototype]]: Array(0)
+30000
+ 3
+(4) [50000, 60000, 45000, 30000]0: 500001: 600002: 450003: 30000length: 4[[Prototype]]: Array(0)
+(4) [50000, 60000, 45000, 30000]0: 500001: 600002: 450003: 30000length: 4[[Prototype]]: Array(0)
+
+Eg:
+<script>
+var salaries=[50000,60000,45000,30000]
+salaries.forEach(increment)
+
+
+function increment(salary,index,arr){
+	console.log(salary)
+	console.log(index)
+	console.log(arr)
+}
+
+</script>
+
+
+o/p:
+50000
+0
+(4) [50000, 60000, 45000, 30000]0: 500001: 600002: 450003: 30000length: 4[[Prototype]]: Array(0)
+60000
+1
+(4) [50000, 60000, 45000, 30000]0: 500001: 600002: 450003: 30000length: 4[[Prototype]]: Array(0)
+45000
+2
+(4) [50000, 60000, 45000, 30000]0: 500001: 600002: 450003: 30000length: 4[[Prototype]]: Array(0)
+30000
+ 3
+(4) [50000, 60000, 45000, 30000]0: 500001: 600002: 450003: 30000length: 4[[Prototype]]: Array(0)
+
+
+Set in Javascript
+==================
+=>It is same as Array
+
+=>set is collection of unique values
+=>Array is collection of values
+
+Eg:
+
+script>
+
+let s1=new Set()
+console.log(s1)
+console.log(typeof(s1))
+
+</script>
+
+o/p:set(0) {size:0}
+object
+
+
+Eg:
+script>
+
+let s1=new Set()
+console.log(s1)
+console.log(typeof(s1))
+s1.add(20)
+s1.add(60)
+  .add(70)
+  .add(50)
+console.log(s1)
+</script>
+
+
+o/p:set(0) {size:0}
+object
+set(4) {20,60,70,50}
+
+Eg:
+
+<script>
+
+let s1="Hyderabad"
+let s2=new Set(s1)
+console.log(s2)
+console.log(typeof(s2))
+
+</script>
+
+o/p:
+
+set(7){'H','y','d','e','r','b','a','d'}
+
+
+Eg:
+
+<script>
+
+let s1="Hyderabad"
+let s2=new Set(s1)
+let status=s2.has('H')
+console.log(status)//true
+console.log(s2.size)//7
+s2.clear()//
+console.log(s2.size)//0
+
+</script>
+
+=>we can use for-of-loop or forEach
+
+<script>
+for(ele of s2)
+{
+	console.log(ele);
+}
+
+o/p:
+H
+y
+d
+e
+r
+a
+b
+a
+d
+
+<script>
+s2.forEach(function(ele,index,s){
+	console.log(ele)
+	console.log(index)
+	console.log(s)
+})
+console.log(s2.entries())
+
+let itr=s2.entries()
+console.log(itr.next())//value:Array(2)["H","H"]
+console.log(itr.next())//value:Array(2)["y","y"]
+
+o/p:
+H
+H
+set(7){'H','y','d','e','r','b','a','d'}
+y
+y
+set(7){'H','y','d','e','r','b','a','d'}
+d
+d
+set(7){'H','y','d','e','r','b','a','d'}
+e
+e
+set(7){'H','y','d','e','r','b','a','d'}
+r
+r
+set(7){'H','y','d','e','r','b','a','d'}
+a
+a
+set(7){'H','y','d','e','r','b','a','d'}
+b
+b
+set(7){'H','y','d','e','r','b','a','d'}
+a
+a
+set(7){'H','y','d','e','r','b','a','d'}
+d
+d
+
+0:"H"=>"H"
+1:"y"=>"y"
+2:"d"=>"d"
+3:"e"=>"e"
+4:"r"=>"r"
+5:"a"=>"a"
+6:"b"=>"b"
+7:"a"=>"a"
+8:"d"=>"d"
+
+Objects 
+=======
+
+=>object is collection of elements in the form of properties and methods.
+=>property is a key-value pair.
+
+Eg:
+var user1={
+	name:'xyz',
+	email:xyz@gmail.com,
+	mobile:8942769249
+	login:function(){
+		console.log("login success")
+	}
+};
+
+ways to create object:
+------------------------
+1.object literal
+2.Using a new keyword with object constructor
+3.Using a new keyword with a constructor function
+4.Object.create() method
+5.Classes
+
+object literal:
+++++++++++++++++
+
+let movie1={} -> create an empty object
+
+let movie={        -> object with properties(key:value pairs)
+	name:"RRR"
+	release:2022
+	director:"Rajmouli"
+}
+console.log(movie)//object
+
+o/p:
+Object
+ director:"Rajmouli"
+ name:"RRR"
+ release:2022
+
+How to access object values:
+----------------------------
+
+=>we can access values by using keys in 2ways
+
+1. obj["key"] --> quotes are mandatory
+
+Ex:movie["name"] -> valid
+   movie[name] -> Invalid 
+
+2.obj.key 
+
+Ex:movie.name
+
+How to add new properties to object:
+------------------------------------
+
+we can add properties by using keys in 2 ways
+
+1.obj["key"]=value
+
+Ex:movie["budget"]="400 crores"
+
+2.obj.key=value
+
+Ex:movie.budget="400 crores"
+
+How to update values of object:
+--------------------------------
+we can add properties by using keys in 2 ways
+
+
+1.obj["key"]=value
+
+Ex:movie["budget"]="500 crores"
+
+2.obj.key=value
+
+Ex:movie.budget="500 crores"
+
+
+2.Using new Operator object constructer:
++++++++++++++++++++++++++++++++++++++++++
+
+Eg:let movie1=new Object();
+
+movie1.name="RRR";
+movie1.director="Rajamouli";
+movie1["release"]=2022;
+
+3.Using new Operator with constructor function:
++++++++++++++++++++++++++++++++++++++++++++++++
+
+Step1:create constructor function:
+
+function user(name,age,place){
+	this.name=name;
+	this.age=age;
+	this.place=place;
+}
+
+step2:create object with constructor function call:
+
+let user1=new user("abc",25,"Hyderabad");
+
+
+add the new property:
+
+user1.mobile=992814998
+
+access the object values:
+
+console.log(user1.name)
+console.log(user1.age)
+console.log(user1.place)
+
+
+4.Object.create method:
+++++++++++++++++++++++++
+
+Eg: let movie3=object.create(movie,{
+
+			name:{
+				value:"RRR"
+			},
+			Music:{
+				value:"Keeravani"
+			},
+})
+
+1st way:
+--------
+function user(name,age,place){
+	this.name=name;
+	this.age=age;
+	this.place=place;
+}
+let user1=new user("abc",25,"Hyderabad");
+
+
+
+let user2=object.create(user1);
+console.log("user1:")
+console.log(user1);//name:abc;age:25;place:Hyderabad
+console.log("user2:")
+user2.name="pqr";
+user.age=28;
+console.log(user2);//name:pqr;age:28 it is prototype:user1 type
+we can creating a method
+-------------------------
+function user(name,age,place){
+	this.name=name;
+	this.age=age;
+	this.place=place;
+	this.login=function(){
+		console.log("hello "+" "+this.name+" "+logged in successfully")
+	}
+}
+
+
+let user1=new user("abc",25,"Hyderabad");
+let user2=new user("xyz",27,"Delhi");
+user1.login()//hello abc logged in successfully
+user2.login()//hello xyz logged in successfully
+
+for(key in user1){
+	console.log(key,":",user1[key])
+}
+
+console.log(Object.keys(user1))//{'name','age','place','login'}
+console.log(Object.values(user1))//{'abc',25,'Hyderabad',f}
+console.log(Object.entries(user1))//both keys and values with index
+
+o/p:
+name:abc
+age:25
+place:Hyderabad
+login:f(){
+	console.log("hello "+" "+this.name+" "+logged in successfully")
+}
+	
+Console.methods
+================
+=>console.log()
+
+let s="used"
+console.log("log method",s)//log method used
+->It is used at the time of development and debug
+
+=>console.info()
+
+let s="used"
+console.info("log method",s)//log method used
+
+->we use info() at the opening of webpage
+
+=>console.warn():display warnings
+->the background color is in yellow
+
+=>console.error()
+
+=>console.table()
+
+console.table(['xyz','abc','pqr'])
+o/p:
+index   value
+0	  'xyz'
+1       'abc'
+2       'pqr'
+
+console.log({name:"xyz",age:26,place:'Bgl"})
+o/p:
+index   value
+name	  'xyz'
+age      26
+place    Bgl
+
+=>console.clear():clear all values
+=>console.assert():
+
+console.assert(10>5,"Condition false")
+o/p:
+
+console.assert(10>15,"Condition false")
+o/p:Assertion failed:Condition false(red color)
+
+=>console.count()
+
+console.count()//default:1
+console.count()//default:2
+console.count("called")//called:1
+
+
+=>console.countReset()
+=>console.time():time start
+=>console.Timelog()
+=>console.timeend():time end
+
+Eg:
+<script>
+let x=+prompt("Enter a number")
+console.time("loop time:")
+while(x!=10)
+{
+	console.log("Enter 10")
+	console.timeLog("loop time:")
+	x=+prompt("Enter a number")
+	console.count("called:")
+}
+console.timeEnd("loop time:")
+</script>
+
+o/p:
+
+
+Enter 10
+loop time:: 0.08203125 ms //time difference from first time to timeLog
+called:: 1
+Enter 10
+loop time:: 1240.52392578125 ms
+called:: 2
+loop time:: 4584.31005859375 ms
+
+
+=>console.group
+=>console.groupend
+
+<script>
+
+console.group("group1")
+console.log("group1 log1")
+console.log("group1 log2")
+console.log("group1 log3")
+console.groupEnd()
+console.group("group2")
+console.log("group2 log1")
+console.log("group2 log2")
+console.log("group2 log3")
+console.groupEnd()
+
+
+</script>
+
+o/p:
+group1
+	group1 log1
+	group1 log2
+	group1 log3
+group2
+	group2 log1
+	group2 log2
+	group2 log3
+
+DOM(Document Object Model)
+===========================
+=>By using HTML DOM Javascript can acess,change or remove any elements of HTML documents 
+and also can create new elements at any position.
+=>When a webpage loaded,browser create DOM of webpage.
+
+=>Document object has properties & methods
+=>Using the document object properties & methods we can 
+	->select HTML elements
+	->Modify HTML elements
+	->Remove/delete HTML elements
+	->create HTML elements
+	->Add/Remove/Change Styles to HTML elements
+
+Methods to select HTML Elements:
+
+
+1.document.getElementById("idname")
+	Returns element with the specified id
+
+2.document.getElemenntByClassName("classname")
+	Returns list of all elements belongs to the specified class
+
+3.document.getElementsByTagName("tagname")
+	Returns list of all elements with the specified tag
+
+4.document.querySelector(".class/#id/tagname")
+	Returns the first object matching CSS style selector
+
+5.document.querySelectorAll(".class/#id/tagname")
+	Returns the objects matches the CSS style selector
+
+
+DOM Manipulation
+================
+
+=>How to create HTML elements
+
+	var n=document.createElement('p')
+	console.log(n) //o/p:<p></p>
+
+=>How to set content to element
+	n.innerText="This is paragraph"
+	console.log(n) //o/p:<p>This is paragraph</p>
+
+=>How to append a new element
+	var parent=document.getElementById("second")
+	console.log(parent)
+
+	parent.appendChild(n)//the p element will insert at the end of the previous text
+
+
+
+n.innerHTML="<div>This is div </div>"//This is div
+n.innerText="<div>This is div </div>"//"<div>This is div </div>"
+
+=>How to insert an element before another element
+
+<div id="second">
+	<p>
+		This is first paragraph in division2
+	</p>
+	<p id="last">
+		This is second paragraph in divison2
+	</p>
+</div>
+
+
+<script>
+	var n=document.createElement('p')
+	n.innerText="This is special paragraph"
+
+	var parent=document.getElementById("second")
+	var last=document.getElementById("last")
+
+	parent.insertBefore(n,last)
+
+</script>
+
+o/p:
+This is first paragraph in division2
+This is special paragraph
+This is second paragraph in division2
+
+
+=>How to remove an element
+
+<div id="second">
+	<p>
+		This is first paragraph in division2
+	</p>
+	<p id="last">
+		This is second paragraph in divison2
+	</p>
+</div>
+
+
+<script>
+	var last=document.getElementById("last")
+	last.remove()
+</script>
+
+o/p:
+This is first paragraph in division2
+
+
+=>How to remove child element
+
+<div id="second">
+	<p id="pfirst">
+		This is first paragraph in division2
+	</p>
+	<p id="last">
+		This is second paragraph in divison2
+	</p>
+</div>
+
+
+<script>
+	var n=document.createElement('p')
+	n.innerText="This is special paragraph"
+
+	var parent=document.getElementById("second")
+	var last=document.getElementById("pfirst")
+	
+	parent.removeChild(last)//<p id="first">This is first paragraph in division2</p>
+
+	
+
+</script>
+
+=>How to replace an element
+
+
+
+<div id="second">
+	<p id="pfirst">
+		This is first paragraph in division2
+	</p>
+	<p id="last">
+		This is second paragraph in divison2
+	</p>
+</div>
+
+
+<script>
+	var n=document.createElement('h1')
+	n.innerText="This is special heading"
+
+	var last=document.getElementById("last")
+	last.replaceChildren(n)
+	
+</script>
+
+
+o/p:
+This is first paragraph in division2
+This is special heading
+
+
+Add styles in JavaScript
+========================
+
+=>How to change style of element
+=>How to get attribute value of an element
+=>How to set/change attribute of an element
+
+<html>
+	<head>
+	<style>
+	#special{
+		color:blue;
+	}
+	</style>
+	</head>
+<body>
+	<div id="special">
+		This is division one
+	</div>
+
+	<script>
+		var x=document.getElementById("special")
+		x.style.color="red";
+		x.style.border="black 3px solid"
+	</script>
+
+</html>
+
+=>
+<html>
+	<head>
+	<style>
+	#special{
+		color:blue;
+	}
+	</style>
+	</head>
+<body>
+	<div id="special">
+		This is division one
+	</div>
+	<img src="nature.jpg" alt="" id="img1">
+
+	Name:<input type="text" id="fn">
+
+	<script>
+		var x=document.getElementById("special")
+		console.log(x.getAttribute('id'))//special
+		
+		x.setAttribute('class','one')
+		console.log(x.getAttribute('class'))//one
+
+		var y=document.getElementById("img1")
+		y.style.width="100px"
+		y.style.height="100px"
+		console.log(y.getAttribute('src'))//nature.jpg
+		y.setAttribute('src','cake.jpg')
+
+		var z=document.getElementById("fn")
+		console.log(z.getAttribute('value'))//null
+		z.setAttibute('value',"xyz")//it print xyz in textfield
+	
+		var a=document.getElementById("special")
+		a.classList.add('two')
+		console.log(a.classList)//0:one 1:"two" length:2 value:"one two"
+	
+
+	</script>
+
+</html>
+
+
+Modal Windows in Javascript
+============================
+1.alert
+
+
+<script>
+	alert("This is test")
+</script>
+
+2.prompt
+
+<script>
+	let name=prompt("Enter your name")
+	console.log(name)//when i click on ok button it will display null
+</script>
+
+
+<script>
+	let name=prompt("Enter your name","abc")
+	console.log(name)//when i click on ok button it will display with default value abc
+</script>
+
+3.confirm
+
+
+<script>
+	let x=confirm("Are u sure want to delete")
+	console.log(name)//when i click on ok button it will display true
+</script>
+
+Events in JavaScript |Event handling in JavaScript | Event handlers in JavaScript =================================================================================
+
+=>What is event & types of event in JS
+=>What is event handler
+=>Ways to handle event in JS
+
+Event
+-----
+=>Event is ntg but an action
+=>In webpage also what ever user do everything is an event
+
+who generates events:
+---------------------
+=>user --> keypress,scroll,focus
+=>System --> load,error,abort
+
+Types of user generated events:
+------------------------------
+=>Browser specifi events --> scrollup/down resize browser
+=>DOM/web page specific events --> click,hover,focus
+
+
+=>Event handler is function we write to run when an event happens.
+
+
+Commonly used events in Javascript:
+-----------------------------------
+Mouse Events:
+
+click
+double click
+mouseover
+mouseout
+mouse move
+
+Keyboard Events:
+
+key down
+key up
+key press
+
+Focus events:
+
+focus
+blur
+focusin
+focusout
+
+Form Events
+
+submit
+reset
+change
+
+ways to handle events:
+
+1.Inline event handlers(using event attributes in HTML)
+
+ Ex:<button onclick="Javascript code">
+
+Eg:
+<div id="special">
+Name:<input id="sp" type="text"/>
+<button id="b1" onclick="document.body.style.backgroundColor='red'">Change Background</button>
+
+o/p:when the user click on Change Background button it will change the red color of background.
+
+			or
+
+Eg:
+<div id="special">
+Name:<input id="sp" type="text"/>
+<button id="b1" onclick="change()">Change Background</button>
+
+<style>
+function change(){
+	document.body.style.backgroundColor='red'
+}
+</style>
+
+o/p:when the user click on Change Background button it will change the red color of background.
+
+
+2.using event properties in Javascript
+
+ Ex:let btn=document.getElementById('b1')
+    btn.onclick=function name/anonymous function
+
+
+Eg:named function
+<div id="special">
+Name:<input id="sp" type="text"/>
+<button id="b1">Change Background</button>
+</div>
+
+<script>
+let btn=document.getElementById('b1')
+btn.onClick=change;
+function change(){
+	document.body.style.backgrounColor='red'
+}
+</script>
+
+
+o/p:when the user click on Change Background button it will change the red color of background.
+
+
+Eg:Anonymous function
+<div id="special">
+Name:<input id="sp" type="text"/>
+<button id="b1">Change Background</button>
+</div>
+
+<script>
+let btn=document.getElementById('b1')
+btn.onClick=function(){document.body.style.backgrounColor='red'}
+</script>
+
+
+o/p:when the user click on Change Background button it will change the red color of background.
+
+
+3.using addEventListener() method in Javascript
+
+Ex:let btn=document.getElementById('b1')
+   button.addEventListener(eventname,function name/anonymous fun)
+
+eg:
+<div id="special">
+Name:<input id="sp" type="text"/>
+<button id="b1">Change Background</button>
+</div>
+
+<script>
+let btn=document.getElementById('b1')
+btn.addEventListener('click',change)
+function change(){
+	btn.style.backgrounColor='red'
+}
+</script>
+
+or
+
+eg:anonymous 
+<div id="special">
+Name:<input id="sp" type="text"/>
+<button id="b1">Change Background</button>
+</div>
+
+<script>
+let btn=document.getElementById('b1')
+btn.addEventListener('click',function(){
+	btn.style.backgrounColor='red'
+})
+</script>
+
+
+o/p:when the user click on Change Background button it will change the red color of background.
+
+
+or
+
+eg:keyup
+<div id="special">
+Name:<input id="fullname" type="text"/>
+<button id="b1">Change Background</button>
+</div>
+
+<script>
+let fn=document.getElementById('fullname')
+fn.addEventListener('keyup',change)
+function change(evnt){
+	console.log(evnt);
+	fn.style.backgrounColor='red'
+})
+</script>
+
+o/p:when the user write some character in textbox and put finger out then keyboard event occurs
+happen
+
+
+set timeout function
+====================
+
+Eg:
+<body>
+	<script>
+	   setTimeout(function(name){
+		alert("Hello"+name)
+	   },3000,"xyz");
+	console.log("hi");
+        </script>
+</body>
+
+o/p:After the page load the hi is displayed in console and after 3000 sec it will give alert the Hello xyz
+
+=>This setTimeout will give some value so 
+
+Eg:clearInterval
+<body>
+	<script>
+	   var x=setTimeout(function(name){
+		alert("Hello"+name)
+	   },3000,"xyz");
+	console.log(x);
+	clearInterval(x);
+	console.log("hi");
+        </script>
+	
+
+</body>
+
+
+
+o/p:After the page load the hi is displayed in console and it wont display any alert bcse of clearInterval
+
+
+
+
+Eg:passing callback fn
+<body>
+	<script>
+	   var x=setTimeout(test,3000,"xyz");
+	console.log("hi");
+	console.log(x);
+	function test(name){
+		alert("Hello"+name)
+	}
+        </script>
+	
+
+</body>
+
+o/p:After the page load the hi and 1(setTimeout value) is displayed in console and after 3000 sec it will give alert the Hello xyz
+
+Eg:setInterval fn
+<body>
+	<script>
+	var counter=1
+	 var x=setTimeout(test,3000,"xyz");
+	console.log("hi");
+	console.log(x);
+	function test(name){
+		alert("called:"+counter)
+		counter++
+	}
+        </script>
+
+</body>
+
+o/p:After the page load the hi and 1(setTimeout value) is displayed in console and after 3000 sec it will give alert  called 1
+and after 3000 it will give alert called 2 and after 3000 it will give alert  called 3 soon..
+
+
+Map in JavaScript
+=================
+
+eg:anonymous
+<body>
+<script>
+	var birthyears=[2000,2015,2017,2018,2020]
+	var ages=birthyears.map(function(ele,index,arr){
+		let age=2023-ele
+		return age;
+	})
+	console.log(ages);
+</script>
+
+
+o/p:
+
+Array(5)
+0:23
+1:8
+2:6
+3:5
+4:3
+
+eg:
+<body>
+<script>
+	var birthyears=[2000,2015,2017,2018,2020]
+	var ages=birthyears.map(ageFind)
+	function ageFind(ele){
+		let age=2023-ele
+		return age;
+	})
+	console.log(ages);
+</script>
+
+
+o/p:
+
+Array(5)
+0:23
+1:8
+2:6
+3:5
+4:3
+
+
+=>map will create new array automatically
+=>foreach wont create new array
+ 
+
+filter in Javascript
+====================
+
+eg:using filter
+<body>
+<script>
+	var nums=[8,9,89,60,4,9]
+	var even=nums.filter(function(ele){
+		return ele%2==0
+	})
+	console.log(even)
+</script>
+
+o/p:[8,60,4]
+
+eg:using map
+<body>
+<script>
+	var nums=[8,9,89,60,4,9]
+	var even=nums.map(function(ele){
+		return ele%2==0
+	})
+	console.log(even)
+</script>
+
+o/p:[true,false,false,true,true,false]
+
+
+reduce in Javascript
+====================
+
+=>arraname.reduce(function,accumulator default value)
+function can take 4 arguments
+function(acc value,ele,index,array)
+arr.reduce(function(acc,ele,index,arr){},8)
+This method returns a single value
+
+
+eg:
+<body>
+<script>
+	var arr=[7,9,8,9,10,78]
+	var max=arr.reduce(function(acc,ele,index,arr){
+		if(acc>ele){
+			return acc
+		}
+		else{
+			return ele
+		}
+	},arr[0])
+	console.log(max)//78
+</script>
+
+o/p:acc=7
+7>7
+return ele(7)
+
+7>9
+return ele(9)
+
+9>8
+return acc(9)
+
+9>9
+return ele(9)
+
+9>10
+return ele(10)
+
+10>78
+return ele(78)
+
+eg:
+<body>
+<script>
+	var arr=[7,9,8,9,10,78]
+	var sum=arr.reduce(function(acc,ele,index,arr){
+		return acc+ele
+	},0)
+	console.log(sum)//120
+</script>
+
+o/p:
+return 0+7=7
+return 7+8=15
+return 15+8=23
+return 23+9=32
+return 32+10=42
+return 42+78=120
+
+
+
+eg:arrow function
+<body>
+<script>
+	var arr=[7,9,8,9,10,78]
+	var sum=arr.reduce((acc,ele)=>{return acc+ele},0)
+	console.log(sum)//120
+</script>
+
+o/p:
+return 0+7=7
+return 7+8=15
+return 15+8=23
+return 23+9=32
+return 32+10=42
+return 42+78=120
+
+find,any,every methods in JavaScript
+====================================
+
+find:find method is a call back function
+=>It returns the first element of array for which call back function returns true.
+eg:find
+<body>
+	<script>
+	let places=["Hyderabad","Delhi","Vizag","Vijayawada"]
+	var place=places.find(function(ele,index,arr)){
+		return ele.startsWith("V")
+	}
+	console.log(place)//Vizag
+	</script>
+</body>
+
+eg:return ele.startsWith("c") o/p:undefined
+
+
+eg:with filter
+<body>
+	<script>
+	let places=["Hyderabad","Delhi","Vizag","Vijayawada"]
+	var place=places.filter(function(ele,index,arr)){
+		return ele.startsWith("V")
+	}
+	console.log(place)//['Vizag','Vijayawada']
+	</script>
+</body>
+
+some:it will return boolean value if the value is found otherwise it returns false
+
+eg:
+<body>
+	<script>
+	let places=["Hyderabad","Delhi","Vizag","Vijayawada"]
+	var place=places.some(function(ele,index,arr)){
+		return ele.startsWith("V")
+	}
+	console.log(place)//true
+	</script>
+</body>
+
+every:it will return true if the condition is true for all values otherwise it returns false
+
+eg:
+<script>
+	marks=[67,89,87,88,54,64]
+	var pass=marks.every(function(mark){
+		return mark>35
+	})
+	console.log(pass)//true
+</script>
+
+
+
+spread operator in Javascript
+==============================
+
+=>It takes an iterable and expands or seperate each element of iterable
+
+
+eg:
+<script>
+	var arr=[78,89,90,67]
+	console.log(arr)//(4){78,89,90,67}
+	console.log(..arr)//78 89 90 67
+
+
+	var arr2=[2,4,arr]
+	console.log(arr2)//2,4,Array(4)
+	var arr3=[2,4,...arr]
+	console.log(arr3)//2,4,78,89,90,67
+	
+</script>
+
+
+eg:
+<script>
+   var s1="Javascript"
+   console.log(...s1)//J a v a s c r i p t
+   console.log(s1)//Javascript
+</script>
+
+eg:
+<script>
+	var arr1=[1,2,3,4]
+	var arr2=[5,6,7,8]
+	var arr3=[...arr1,...arr2]
+	console.log(arr3)//(8)[1,2,3,4,5,6,7,8]
+
+	var arr4=[arr1,arr2]
+	console.log(arr4)//(2)[Array(4),Array(4)]
+
+	function add(a,b,c,d){
+		console.log(a+b+c+d)//10
+	}
+	add(...arr1)
+
+	function add(a,b,c,d){
+		console.log(a+b+c+d)//10
+	}
+	add(arr1[0],arr1[1],arr1[2],arr1[3])
+
+</script>
+
+
+
+callback function
+================
+=>callback function is a function that is passing as an argument to 
+another function.
+
+eg:
+<script>
+	function test(a){
+		console.log(a)
+	}
+	test(function(){
+		console.log("callback function")
+	})
+</script>
+
+o/p:
+f(){
+	console.log("callback function")
+}
+
+eg:
+<script>
+	function test(a){
+		a()
+	}
+	test(function(){
+		console.log("callback function")
+	})
+</script>
+
+o/p:
+callback function
+
+eg:
+<script>
+function first(test){
+	test()
+	console.log("this is first function")
+}
+function second(){
+	console.log("this is second function")
+}
+first(second)
+</script>
+o/p:
+this is second function
+this is first function
+
+
+eg:
+<script>
+	function add(a,b){
+		return a+b
+	}
+	function product(a,b){
+		return a*b
+	}
+	function calculator(va1,val2,operation)
+	{
+		operation(val1,val2)
+	}
+	calculator(3,2,add)//5
+	calculator(3,2,product)//6
+</script>
+
+eg:passing callback fn to map
+<script>
+	arr=[1,2,3,4]
+	var res=arr.map(function(ele,index,arr){
+		return ele*ele
+	})
+	console.log(res)//(4){1,4,9,16}
+</script>
+
+Higher order functions 
+======================
+=>High order function is a function that receives another function as 
+argument or return another function or both.
+
+Example of receiving another function as argument:
+
+<script>
+function first(test){
+	test()
+	console.log("this is first function")
+}
+function second(){
+	console.log("this is second function")
+}
+first(second)
+</script>
+
+o/p:
+this is second function
+this is first function
+
+
+
+eg:using normal function
+
+<script>
+	var arr=[6,8,7,10,11]
+	function square(arr)
+	{
+		squares=[]
+		for(ele of arr)
+		{
+			let res=ele*ele
+			squares.push(res)
+		}
+		console.log(squares)//(5){36,64,49,100,121}
+	}
+	square(arr)
+
+
+</script>
+
+eg:using normal function
+
+<script>
+	var arr=[6,8,7,10,11]
+	function square(arr)
+	{
+		squares=[]
+		for(ele of arr)
+		{
+			let res=ele*ele
+			squares.push(res)
+		}
+		return squares
+	}
+
+	function cube(arr)
+	{
+		cubes=[]
+		for(ele of arr)
+		{
+			let res=ele*ele*ele
+			cubes.push(res)
+		}
+		return cubes
+	}
+
+	let x=square(arr)
+	console.log(x)//(5){36,64,49,100,121}
+
+	let y=cube(arr)
+	console.log(y)//(5){216,512,343,1000,1331}
+
+
+</script>
+
+
+eg:High order fn
+
+<script>
+	var arr=[6,8,7,10,11]
+	function square(num)
+	{
+		
+		return num*num
+	}
+
+	function cube(num)
+	{
+		
+		return num*num*num
+	}
+
+
+	function anyoperation(arr,operation){
+		let result=[]
+		for(ele of arr){
+			result.push(operation(ele))
+		}
+		return result
+	}
+
+	let x=anyoperation(arr,square)
+	console.log(x)//(5){36,64,49,100,121}
+
+	let y=anyoperation(arr,cube)
+	console.log(y)//(5){216,512,343,1000,1331}
+
+</script>
+
+eg:arrow fn
+<script>
+
+function first()
+{
+	return ()=>{console.log("This is arrow fn")}
+}
+
+first()()//This is arrow fn
+
+eg:anonymous fn
+<script>
+
+function first()
+{
+	return function(){console.log("This is anonymous fn")}
+}
+
+first()()//This is anonymous fn
+
+Closure in Javascript
+=====================
+
+=>Accessing variables of a fn even its execution completes or 
+out of its scope.
+
+
+eg:
+<script>
+	function outer(){
+		var x=10;
+		console.log(y)
+		function inner(){
+			var y=100;
+			console.log(x);
+		}
+	}
+	outer()
+</script>
+
+o/p:y is not defined
+
+eg:
+<script>
+	function outer(){
+		var x=10;
+		function inner(){
+			var y=100;
+			console.log(x);
+		}
+	  inner()
+	}
+
+	outer()
+</script>
+
+o/p:10
+
+eg:
+<script>
+	function outer(){
+		var x=10;
+		function inner(){
+			var y=100;
+			console.log(x);
+		}
+	  return inner
+	}
+	var res=outer()
+	res()
+</script>
+
+o/p:10
+
+eg:
+<script>
+	function outer(num1){
+		var x=10
+		function inner(num2){
+			console.log(num1+num2+x);
+		}
+	  return inner
+	}
+	var res=outer(5)
+	res(8)
+</script>
+
+o/p:23
+
+adv:
+----
+<body>
+<input type="button" onclick="updatecount()" value="click">
+<p id="count">clicked:0</p>
+<script>
+	let count=0
+	function updatecount(){
+		count++
+		let p=document.getElementById("count")
+		p.innerText=`clicked:${count}`
+	}
+</script>
+</body>
+
+o/p:when the user click on button then it will increment the count by 1
+but here i am using global variable so may be in another fn also
+it can be changed.
+
+so to avoid this 
+
+<body>
+<input type="button" onclick="updatecount()" value="click">
+<p id="count">clicked:0</p>
+<script>
+	
+	function updatecount(){
+		let count=0
+
+		function inner(){
+			count++
+			console.log(count)
+			let p=document.getElementById("count")
+			p.innerText=`clicked:${count}`
+		}
+		return inner
+	}
+	let updatecnt=updatecount()
+	updatecnt()//1 when the user click on button
+</script>
+</body>
+
+
+This keyword 
+=============
+
+value of this keyword outside a function/object==>window object
+
+value of this keyword inside a regular function=>window object
+
+value of this keyword inside a method=>related object
+
+value of this keyword inside event handler=>html element
+
+value of this keyword inside a function in strict mode=>undefined
+
+
+eg:
+<body>
+<script>
+	console.log(this);
+</script>
+
+o/p:window object 
+
+
+eg:
+<body>
+<script>
+	var a=10
+	console.log(this);
+
+	test={                  //object
+		x:10
+	}
+</script>
+
+o/p:window object 
+
+
+eg:
+<body>
+<script>
+	var a=10
+	console.log(this);//window object 
+
+	function add()
+	{
+			
+	}
+	console.log(window.a)//10
+	console.log(a)//10
+	console.log(this.a)//10
+
+	var ab={
+		name:"xyz"
+	}
+	console.log(this.ab)//in window object we found ab
+
+</script>
+
+
+eg:In regular/normal fn also it represents the window object
+<body>
+<script>
+	var a=10
+	console.log(this);//window object 
+
+	function add()
+	{
+		console.log(this.a);//10
+		console.log(window.a)//10
+	}
+	add()
+</script>
+
+eg:Inside the  object function  it represents that object
+<body>
+<script>
+	
+	var movie={
+		name:"RRR",
+		getName:function(){
+			console.log(this)//
+		}
+	}
+	movie.getName()
+
+</script>
+
+o/p:
+{name:"RRR",getName:f}
+getName:f()
+name:"RRR"
+
+eg:Event handler will represent the html element the element which we clicked
+<body>
+<input type="button" value="click" onclick="console.log(this)">
+
+</body>
+
+o/p:<input type="button" value="click" onclick="console.log(this)">
+
+
+eg:
+<body>
+<input type="button" value="click" onclick="this.style.background='green'">
+
+</body>
+
+o/p:when i click on button it will change color of button
+
+
+eg:
+
+<body>
+<input type="button" value="click" id="btn">
+<script>
+	document.getElementById("btn").onclick=function(){
+		console.log(this)
+	}
+</script>
+</body>
+
+o/p:<input type="button" value="click" id="btn">
+
+
+eg:Inside the strict mode
+
+<body>
+<script>
+  "use strict"
+   x=10
+
+</script>
+</body>
+
+o/p:uncaught:ReferenceError:x is not defined
+
+
+eg:
+<body>
+<script>
+  "use strict"
+   var x=10
+</script>
+</body>
+
+o/p:no error
+
+eg:
+<body>
+<script>
+  
+   function test()
+   {
+	"use strict"
+	console.log(this)//undefined
+   }
+   test()
+</script>
+
+</body>
+
+
+call,apply,bind in Javascript
+=============================
+=>we can manipulate the this keyword
+
+eg:
+
+<body>
+<script>
+	var salary=2000
+	function getSalary()
+	{
+		console.log(this.salary)//2000
+		console.log(window.salary)//2000
+		console.log(salary)//2000
+	}
+	getSalary()
+
+</script>
+</body>
+
+eg:
+
+<body>
+<script>
+	var salary=2000
+	function getSalary()
+	{
+		console.log(this.salary)//3000
+		console.log(window.salary)//2000
+		console.log(salary)//2000
+	}
+	
+	employee={
+		salary:3000
+	}
+
+	getSalary.call(employee)
+</script>
+</body>
+
+
+eg:call
+
+<body>
+<script>
+	var salary=2000
+	function getSalary(a,b)
+	{
+		console.log(this.salary)//3000
+		console.log(a,b)//45 67
+	}
+	
+	employee={
+		salary:3000
+	}
+
+	getSalary.call(employee,45,67)
+</script>
+</body>
+
+
+eg:apply :we should give arguments in the form of array
+
+<body>
+<script>
+	var salary=2000
+	function getSalary(a,b)
+	{
+		console.log(this.salary)//3000
+		console.log(a,b)//45 67
+	}
+	
+	employee={
+		salary:3000
+	}
+
+	getSalary.apply(employee,[45,67])
+</script>
+</body>
+
+
+eg:bind:it will return the function
+body>
+<script>
+	var salary=2000
+	function getSalary(a,b)
+	{
+		console.log(this.salary)
+		console.log(a,b)
+	}
+	
+	employee={
+		salary:3000
+	}
+
+	var f1=getSalary.bind(employee,[45,67]) 
+	f1()
+</script>
+</body>
+
+
+o/p:3000
+(2)[45,78]
+
+
+eg:bind
+body>
+<script>
+	var salary=2000
+	function getSalary(a,b)
+	{
+		console.log(this.salary)
+		console.log(a,b)
+	}
+	
+	employee={
+		salary:3000
+	}
+
+	var f1=getSalary.bind(employee,45,67) 
+	f1()
+</script>
+</body>
+
+
+o/p:3000
+ 45 78
+
+eg:
+
+body>
+<script>
+	var myObject={
+		salary:2000
+		getSalary:function (a,b)
+		{
+			console.log(this.salary)
+			console.log(a,b)
+		}
+		greet:function(wish)
+		{
+			console.log(this.name,wish)//xyz Gud afternoon and after it display Gud evng
+		}
+	}
+	
+	employee={
+		salary:3000
+	}
+	employee1={
+		salary:4000
+	}
+	employee2={
+		name:"xyz"
+		salary:5000
+	}
+	
+	myObject.getSalary.call(employee1,45,67)
+	myObject.getSalary.apply(employee2,[45,67])
+	var f1=myObject.getSalary.bind(employee3) 
+	f1(45,67)
+
+	var f1=myObject.greet.bind(employee3) 
+	f1("Gud afternoon")
+	f2("Gud evng")
+</script>
+</body>
+
+Optional chaining 
+=================
+
+=>we are using multiple objects inside one object
+
+eg:nested properties
+<body>
+<script>
+	let employee={
+		id:130,
+		email:'niki@gmail.com',
+		personalInfo:{
+			name:'xyz',
+			mobile:8919759198
+			address:{
+				line1:"Bazar",
+				line2:"Ameerpet Road",
+				pincode:586272,
+				city:"Hyd",
+				state:"Telangana"
+			}
+		}
+	}
+	console.log(employee.personal.mobile)//error
+</script>
+</body>
+
+o/p:
+Uncaught:TypeError:cannot read properties of undefined (reading 'mobile')
+
+eg:optional chaining
+
+=>it cannot go further if personal object is undefined
+<body>
+<script>
+	let employee={
+		id:130,
+		email:'niki@gmail.com',
+		personalInfo:{
+			name:'xyz',
+			mobile:8919759198
+			address:{
+				line1:"Bazar",
+				line2:"Ameerpet Road",
+				pincode:586272,
+				city:"Hyd",
+				state:"Telangana"
+			}
+		}
+	}
+	console.log(employee.personal?.mobile)//undefined
+</script>
+</body>
+
+
+eg:
+<body>
+<script>
+	let employee={
+		id:130,
+		email:'niki@gmail.com',
+		personalInfo:{
+			name:'xyz',
+			mobile:8919759198
+			address:{
+				line1:"Bazar",
+				line2:"Ameerpet Road",
+				pincode:586272,
+				city:"Hyd",
+				state:"Telangana"
+			}
+		}
+	}
+	console.log(employee.personal)//undefined
+</script>
+</body>
+
+
+eg:if the property is not available then the o/p will be undefined
+<body>
+<script>
+	let employee={
+		id:130,
+		email:'niki@gmail.com',
+		personalInfo:{
+			name:'xyz',
+			mobile:8919759198
+			address:{
+				line1:"Bazar",
+				line2:"Ameerpet Road",
+				pincode:586272,
+				city:"Hyd",
+				state:"Telangana"
+			}
+		}
+	}
+	console.log(employee.personalInfo.address.pincode)//undefined
+</script>
+</body>
+
+eg:if we are accessing the property under undefined object
+
+<body>
+<script>
+	let employee={
+		id:130,
+		email:'niki@gmail.com',
+		personalInfo:{
+			name:'xyz',
+			mobile:8919759198
+			address:{
+				line1:"Bazar",
+				line2:"Ameerpet Road",
+				pincode:586272,
+				city:"Hyd",
+				state:"Telangana"
+			}
+		}
+	}
+	console.log(employee.personalInfo.address.pincode.one)//error
+</script>
+</body>
+
+
+eg:optional chaining
+<body>
+<script>
+	let employee={
+		id:130,
+		email:'niki@gmail.com',
+		personalInfo:{
+			name:'xyz',
+			mobile:8919759198
+			address:{
+				line1:"Bazar",
+				line2:"Ameerpet Road",
+				pincode:586272,
+				city:"Hyd",
+				state:"Telangana"
+			}
+		}
+	}
+	console.log(employee.personalInfo?.address?.pincode?.one)//error
+</script>
+</body>
+
+
+
+
+eg:
+<body>
+<p id="three">This is para</p>
+
+<script>
+	let employee={
+		id:130,
+		email:'niki@gmail.com',
+		personalInfo:{
+			name:'xyz',
+			mobile:8919759198
+			address:{
+				line1:"Bazar",
+				line2:"Ameerpet Road",
+				pincode:586272,
+				city:"Hyd",
+				state:"Telangana"
+			}
+		}
+	}
+	let p=document.getElementById("two").innerText
+	console.log(p)//Error
+
+</script>
+</body>
+
+
+eg:optional chaining
+<body>
+<p id="three">This is para</p>
+
+<script>
+	let employee={
+		id:130,
+		email:'niki@gmail.com',
+		personalInfo:{
+			name:'xyz',
+			mobile:8919759198
+			address:{
+				line1:"Bazar",
+				line2:"Ameerpet Road",
+				pincode:586272,
+				city:"Hyd",
+				state:"Telangana"
+			}
+		}
+	}
+
+	//for null or undefined
+	let p=document.getElementById("two")?.innerText
+	console.log(p)//undefined
+
+</script>
+</body>
+
+Date object in JavaScript
+=========================
+
+eg:
+
+<script>
+	let d1=new Date()
+	console.log(d1)
+
+	//1000ms=1sec
+	//Jan 01 1970 05:30:00 + 1sec = Jan 01 1970 05:30:01
+	let d2=new Date(1000)
+	console.log(d2)
+
+	//next day
+	let d3=new Date(24*60*60*1000)
+	console.log(d3)
+
+	//string format
+	let d4=new Date('2023-06-19')
+	console.log(d4)
+
+	let d5=new Date('06-19-2023')
+	console.log(d5)
+
+	///00 1(jan) so 06(july)
+	let d6=new Date(2023,06,19)
+	console.log(d6)
+
+	let d7=new Date(2023,06,19,5,30,10)
+	console.log(d7)
+	
+	let d8=new Date(2023)
+	console.log(d8)
+
+	let d9=new Date()
+	console.log(d9.getTime())
+	let d10=new Date(1000)
+	console.log(d10)
+	console.log(d10.getTime())//difference from standard time to now
+
+	let d11=new Date()
+	console.log(d11)
+	console.log(d11.getFullYear())
+	console.log(d11.getMonth())
+	console.log(d11.getDate())
+	console.log(d11.getDay())//mon
+	d11.setFullYear(2024) same as for setMonth and setDate
+	console.log(d11.getFullYear())
+	console.log(d11)
+
+
+</script>
+
+o/p:
+Mon Jun 19 2023 09:57:15 GMT+0530 (India Standard Time)
+Thu Jan 01 1970 05:30:01 GMT+0530 (India Standard Time) //Standard time
+Fri Jan 02 1970 05:30:00 GMT+0530 (India Standard Time)
+Mon Jun 19 2023 05:30:00 GMT+0530 (India Standard Time)
+Mon Jun 19 2023 00:00:00 GMT+0530 (India Standard Time)
+Wed Jul 19 2023 00:00:00 GMT+0530 (India Standard Time)
+Wed Jul 19 2023 05:30:10 GMT+0530 (India Standard Time)
+Thu Jan 01 1970 05:30:02 GMT+0530 (India Standard Time)
+1687150911346
+Thu Jan 01 1970 05:30:01 GMT+0530 (India Standard Time)
+1000
+Mon Jun 19 2023 10:44:20 GMT+0530 (India Standard Time)
+2023
+5
+19
+1
+2024
+Wed Jun 19 2024 11:07:04 GMT+0530 (India Standard Time)
+
+
+Math object
+===========
+
+eg:
+<script>
+	console.log(Math.PI)
+	console.log(Math.E)
+	console.log(Math.SQRT2)
+
+</script>
+
+o/p:
+3.141592653589793
+2.718281828459045
+1.4142135623730951
+
+Methods of Math Object:
+-----------------------
+sign()
+abs()
+sqrt()
+pow()
+max()
+min()
+round()
+ceil()
+floor()
+trunc()
+random()
+exp()
+log()
+log2()
+log10()
+
+
+eg:
+<script>
+	console.log(Math.sign(8))//1
+	console.log(Math.sign(-8))//-1
+	console.log(Math.sign(0))//0
+	console.log(Math.sign('s'))//NAN
+
+	console.log(Math.abs(-78))//78
+
+	console.log(Math.sqrt(16))//4
+
+	console.log(Math.pow(5,2))//25
+
+	console.log(Math.min(5,2,8,9))//2
+
+	let a=[41,4,6,7]
+	console.log(Math.min(a))//NAN
+	console.log(Math.min(...a))//4
+
+	console.log(Math.round(6.4))//6
+	console.log(Math.round(6.5))//7
+	console.log(Math.round(6.8))//7
+	
+	console.log(Math.floor(6.5))//6
+	console.log(Math.ceil(6.5))//7
+
+	console.log(Math.trunc(6.9))//6 remove decimal value
+
+	console.log(Math.random())//0.7930303369308978 from 0 to 0.999999
+	
+	
+	console.log(Math.floor(Math.random()*10))//3
+
+	console.log(Math.exp(5))//148.4131591025766
+
+	console.log(Math.log(4))//1.3862943611198906 (log4 base e)
+
+	console.log(Math.log2(4))//2
+
+	console.log(Math.log10(100)) //10
+	
+	console.log(Math.sin(90)) //0.8939966636005579
+
+
+</script>
+
+
+
+
+String Methods in Javascript
+============================
+charAt()
+indexOf()
+lastIndexOf()
+toLowerCase()
+toUpperCase()
+concat()
+trim()
+split()
+startswith()
+endswith()
+slice()
+substring()
+substr()
+includes()
+charCodeAt()
+repeat()
+replace()
+
+
+eg:
+
+<script>
+	
+	var x='java script' 
+	console.log(x)
+	console.log(x.charAt(7))//r it will treat as console.log(new String("html").charAt(7))
+
+	var y=new String('html')
+	console.log(y)
+	console.log(y.charAt(3))//l
+
+	
+</script>
+
+o/p:
+java script
+1.html:11 String {'html'}0: "h"1: "t"2: "m"3: "l"length: 4[[Prototype]]: Stringanchor: ƒ anchor()at: ƒ at()big: ƒ big()blink: ƒ blink()bold: ƒ bold()charAt: ƒ charAt()charCodeAt: ƒ charCodeAt()codePointAt: ƒ codePointAt()concat: ƒ concat()constructor: ƒ String()endsWith: ƒ endsWith()fixed: ƒ fixed()fontcolor: ƒ fontcolor()fontsize: ƒ fontsize()includes: ƒ includes()indexOf: ƒ indexOf()isWellFormed: ƒ isWellFormed()italics: ƒ italics()lastIndexOf: ƒ lastIndexOf()length: 0link: ƒ link()localeCompare: ƒ localeCompare()match: ƒ match()matchAll: ƒ matchAll()normalize: ƒ normalize()padEnd: ƒ padEnd()padStart: ƒ padStart()repeat: ƒ repeat()replace: ƒ replace()replaceAll: ƒ replaceAll()search: ƒ search()slice: ƒ slice()small: ƒ small()split: ƒ split()startsWith: ƒ startsWith()strike: ƒ strike()sub: ƒ sub()substr: ƒ substr()substring: ƒ substring()sup: ƒ sup()toLocaleLowerCase: ƒ toLocaleLowerCase()toLocaleUpperCase: ƒ toLocaleUpperCase()toLowerCase: ƒ toLowerCase()toString: ƒ toString()toUpperCase: ƒ toUpperCase()toWellFormed: ƒ toWellFormed()trim: ƒ trim()trimEnd: ƒ trimEnd()trimLeft: ƒ trimStart()trimRight: ƒ trimEnd()trimStart: ƒ trimStart()valueOf: ƒ valueOf()Symbol(Symbol.iterator): ƒ [Symbol.iterator]()[[Prototype]]: Object[[PrimitiveValue]]: ""[[PrimitiveValue]]: "html"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

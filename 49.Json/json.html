@@ -1,0 +1,35 @@
+<html>
+    <body>
+
+        <script>
+          async function test(){
+                 let a = await fetch("data.json")
+                 a = a.json()
+                 console.log("In the function data: ",a)
+//                  <value>: Array [ {…}, {…} ]
+// ​​                  0: Object { name: "nikki", place: "vzm" }
+// ​​                  1: Object { name: "prashuu", place: "vzm" }    
+            }
+            test()
+
+            let data = [   
+                        {
+                            "name": "nikki",
+                            "place": "vzm"
+                        },
+                        {
+                            "name": "prashuu",
+                            "place": "vzm"
+                        }
+            ]
+            
+            console.log("Array data: ",data)
+            // <value>: Array [ {…}, {…} ]
+    ​​        // 0: Object { name: "nikki", place: "vzm" }
+    ​        // 1: Object { name: "prashuu", place: "vzm" }   
+            console.log("Data in the stringify method: ",JSON.stringify(data))          
+            //[{"name":"nikki","place":"vzm"},{"name":"prashuu","place":"vzm"}]  
+
+        </script>
+    </body>
+</html>

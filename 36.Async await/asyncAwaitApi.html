@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <script>
+          async function data(){
+            
+            let res = await fetch("asyncText.txt")
+            let finalResponse = await res.text()
+            console.log(finalResponse) 
+
+          }
+          data()
+        </script>
+    </body>
+</html>

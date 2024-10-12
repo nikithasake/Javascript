@@ -1,0 +1,72 @@
+Index
+=====
+
+1.Variables
+2.Datatypes
+3.Operators
+4.Ternary Operator
+5.Type Conversion
+6.Condition statements
+7.Loops
+8.Template Literal
+10.Arrays
+11.Functions
+12.Types of Functions
+13.Scope
+14.Default parameters
+15.foreach method
+16.Set
+17.Objects
+18.Console.log
+19.DOM
+20.DOM manipulation
+21.Add Styles
+22.Modal
+23.Events
+24.set timeout
+25.Map
+26.filter
+27.reduce
+28.find,any,every methods
+29.spread operator
+30.call back function
+31.Higher order function
+32.closure
+33.This keyword
+34.call,apply,bind
+35.Optional Chaining
+36.Date Object
+37.Math Object
+38.String Methods
+39.Window object
+40.Window.open
+41.Asynchronous 
+42.Ajax
+43.callback hell
+44.promises
+45.Fetch api
+46.Async
+47.Error handling
+48.prototype
+49.Destructuring
+50.Strict mode
+51.Regular Expression
+52.Meta Characters
+53.Lexical Scope
+54.Pure and Impure
+55.Async and defer
+56.Currying
+57.Object Inheritance
+58.Pass by value & Pass by reference
+59.Recursion
+60.Json
+61.Json vs JavaScript object 
+62.Inheritance
+63.Memorization
+64.Call stack
+65.Session storage vs local Storage
+
+
+
+
+

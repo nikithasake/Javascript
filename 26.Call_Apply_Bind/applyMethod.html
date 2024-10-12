@@ -1,0 +1,20 @@
+<html>
+  <body>
+    <script>
+      var prashuu = 600000
+
+        function employee(a, b){
+            console.log(this.prashuu)//800000
+            console.log(window.prashuu)//600000
+            console.log(prashuu)//600000
+            console.log(a + b)
+        }
+        salary={
+            prashuu: 800000
+        }
+        employee.apply(salary, [7, 2])
+        
+    </script>
+  </body>
+</html>
+

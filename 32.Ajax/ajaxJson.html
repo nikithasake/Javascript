@@ -1,0 +1,33 @@
+<html>
+    <body>
+
+     <input type="button" id="b1" value="click"  onclick="execute()"/>
+       <h1 id="d2"></h1>
+        <script>
+            
+            //Once the user click on the button the below function will executed.
+            function execute(){
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", "ajaxDetails.json", true)
+            xhr.send();
+            
+            //It will execute and will display the innerText data until the data get loaded.
+            xhr.onprogress=()=>{
+                let load=document.getElementById("d2")
+                    load.innerText="Loading!.....";            
+            }
+
+            //Once the entire data get loaded the below onload will be executed and innerHtml data is display.
+            xhr.onload =  () => {       
+                    console.log(xhr.responseText);
+                    let result =xhr.responseText;
+                    result = JSON.parse(result)
+                    console.log(result.name) 
+                    let data=document.getElementById("d2");
+                    data.innerHTML=result.name;
+                }
+            }
+
+        </script>
+    </body>
+</html>

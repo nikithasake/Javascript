@@ -1,0 +1,21 @@
+<html>
+  <body>
+    <script>
+      var prashuu = 600000
+
+        function employee(a, b, c){
+            console.log(this.prashuu)//800000
+            console.log(window.prashuu)//600000
+            console.log(prashuu)//600000
+            console.log(a, b, c)
+        }
+        salary={
+            prashuu: 800000
+        }
+        let result = employee.bind(salary, 7, 2, 5)
+        result();
+        
+    </script>
+  </body>
+</html>
+

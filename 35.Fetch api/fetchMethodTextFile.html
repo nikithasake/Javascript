@@ -1,0 +1,17 @@
+<html>
+    <body>
+        <script>
+            //https://jsonplaceholder.typicode.com/todos/1
+            let f=fetch("fetchText.txt")
+            console.log(f)
+            f.then(function(res,err){ 
+                 return res.text();
+            }).then(function(data){
+                console.log(data)
+            })
+            .catch(function(err){
+                console.log(err);
+            })
+        </script>
+    </body>
+</html>

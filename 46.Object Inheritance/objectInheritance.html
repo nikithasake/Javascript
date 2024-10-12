@@ -1,0 +1,37 @@
+<html>
+    <body>
+        <script>
+           var obj1 ={
+                name:"nikki",
+                rolNo:'123'
+            }
+            var obj2 = Object.create(obj1)
+            console.log(obj1)
+            obj2.place = "Hyd"
+            console.log(obj2)
+            var obj3 = Object.create(obj2)
+            
+            // Output:- 
+            // obj1 == obj3.__proto__
+            // false
+            // obj2 == obj3.__proto__
+            // true
+            // obj1 === obj3.__proto__
+            // false
+            // obj2 === obj3.__proto__
+            // true
+
+            // Output:-
+            // obj2.p
+            // undefined
+            // obj3.__proto__
+            // {place: 'Hyd'}
+            // obj3.__proto__.__proto__
+            // {name: 'nikki', rolNo: '123'}
+            // obj3.__proto__.__proto__.__proto__
+            // {constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
+            // obj3.__proto__.__proto__.__proto__.__proto__
+            // null
+        </script>
+    </body>
+</html>

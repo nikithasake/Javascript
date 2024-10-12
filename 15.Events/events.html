@@ -1,0 +1,62 @@
+<!-- <html>
+    <body>
+        <button onclick="b1()">Click</button>
+        <script>
+            function b1(){
+                document.body.style.backgroundColor="pink"
+            }
+        </script>
+    </body>
+</html> -->
+<!-- <html>
+    <body>
+        <button id="b1">Click</button>
+        <script>
+            let bgColor = document.getElementById("b1");
+            bgColor.onclick = change;
+            function change(){
+                document.body.style.backgroundColor = "pink"
+            }
+        </script>
+    </body>
+</html> -->
+
+<!-- <html>
+    <body>
+        <button id="b1">Click</button>
+        <script>
+            let bgColor = document.getElementById("b1");
+            bgColor.onclick = function(){
+                document.body.style.backgroundColor = "pink"
+            }
+        </script>
+    </body>
+</html> -->
+
+<!-- <html>
+    <body>
+        <button id="b1">Click</button>
+        <script>
+            let bgColor = document.getElementById("b1");
+            bgColor.addEventListener('click', function () {document.body.style.backgroundColor = 'pink'})
+        </script>
+    </body>
+</html> -->
+
+<html>
+    <body>
+         <input id="firstName"/> <!--user entered a character in input field -->
+        <button id="b1">Click</button>
+        <script>
+            let fn = document.getElementById("firstName");
+            fn.addEventListener('keyup', change)
+            function change(e){
+                
+                console.log(this);//<input id="firstName"/>
+                console.log(e)//FocusEvent {isTrusted: true, relatedTarget: null, view: Window, detail: 0, sourceCapabilities: InputDeviceCapabilities, …}
+                console.log(e.key)//a
+                fn.style.backgroundColor = 'blue';
+            }
+        </script>
+    </body>
+</html>

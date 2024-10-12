@@ -1,0 +1,30 @@
+<html>
+    <body>
+        <script>
+            // The async function will return a promise we need to use then method to print the primose data into
+            // object or array or any other value. if we use await the await will execute that block of states in the 
+            // background and also execute other lines outside that block lines and prints until the that await got  
+            // fully executed. onse the await keyword used line get fully executed it will execute the next lines in 
+            // the block.
+             
+            async function text(){
+                console.log("In the text function 1")
+                let x = await  7+5
+                console.log("In the text function 2")
+                console.log("In the text function 3")
+                console.log("In the text function 4")
+                return x;
+            }
+
+            let a = text();
+            // console.log(a)
+            console.log("In the line number 15")
+            console.log("In the line number 16") 
+
+            a.then(function(data){
+                console.log(data);
+            })
+            console.log("In the line number 21")
+        </script>
+    </body>
+</html>

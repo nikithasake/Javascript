@@ -1,0 +1,27 @@
+<html>
+        <body>
+            <script>
+                let p=new Promise(
+
+                function data(succes,error){
+                    let successdata=true;
+                    if(successdata){
+                        succes("I m here");
+                    }else{
+                        error("please verify again");
+                    }
+                });
+
+                p.then(function(data){
+                    console.log(p);
+                    console.log("Heyy successfully Executed!",data);
+                })
+                p.catch(function(){
+                    console.log("Hurray Not Executed!");
+                })
+
+            console.log(p);
+            </script>
+        </body>
+</html>
+

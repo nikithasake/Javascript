@@ -1,0 +1,27 @@
+<html>
+    <body>
+       
+        <script>
+            
+            localStorage.setItem("Nikki","Smile");
+            localStorage.getItem("Nikki");
+
+            sessionStorage.setItem("prashu","happy");
+            sessionStorage.getItem("prashu");
+
+            let s={"name":"prashuu","place":"vizag"}
+            localStorage.setItem("details",s);//details Object
+
+            //String
+            localStorage.setItem("Details",JSON.stringify(s));
+            console.log(localStorage.getItem("Details"))//Details	{"name":"prashuu","place":"vizag"}
+            let d=localStorage.getItem("Details")//{"name":"prashuu","place":"vizag"}
+            console.log(d.name);//undefined
+
+            //Object
+           let e=JSON.parse(d);
+            console.log(e.name);//name
+            
+        </script>
+    </body>
+</html>
